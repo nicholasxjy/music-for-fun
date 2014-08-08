@@ -1,0 +1,38 @@
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    padding: 0;
+    margin: 0;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+.mg-section {
+    height: 1200px;
+    position: relative;
+    overflow: hidden;
+    background: #fff no-repeat 0 0;
+    color: #fff;
+}
+.mg-img-background {
+    height: 1200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+.mg-mask {
+    height: 1200px;
+    background: rgba(0,0,0,0.7);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
