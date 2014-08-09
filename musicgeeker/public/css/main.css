@@ -1,6 +1,5 @@
 html, body {
     height: 100%;
-    overflow: hidden;
 }
 body {
     padding: 0;
@@ -13,14 +12,14 @@ a {
 }
 
 .mg-section {
-    height: 1200px;
+    min-height: 1200px;
     position: relative;
     overflow: hidden;
     background: #fff no-repeat 0 0;
     color: #fff;
 }
 .mg-img-background {
-    height: 1200px;
+    min-height: 1200px;
     position: absolute;
     top: 0;
     left: 0;
@@ -28,11 +27,32 @@ a {
     z-index: 1;
 }
 .mg-mask {
-    height: 1200px;
+    min-height: 1200px;
     background: rgba(0,0,0,0.7);
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 2;
+}
+footer {
+    margin-top: 150px;
+    padding: 10px 50px;
+}
+.contact-me ul li a {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 30px;
+}
+.contact-me ul li a i {
+    padding-right: 10px;
+}
+.site-right {
+    text-align: center;
+    margin-top: 60px;
+}
+.site-about p {
+    width: 300px;
+    line-height: 30px;
 }
