@@ -22,6 +22,7 @@
   "dependencies": {
     "angular": "~1.2.21",
     "angular-ui-router": "~0.2.10",
-    "bootstrap": "~3.2.0"
+    "bootstrap": "~3.2.0",
+    "ngDialog": "~0.2.9"
   }
 }

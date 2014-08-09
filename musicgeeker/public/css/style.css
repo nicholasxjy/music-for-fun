@@ -75,3 +75,33 @@
     height: 323px;
     transform: rotate(-10deg) translateY(-50px);
 }
+
+.login-modal {
+    padding: 10px 30px 15px 30px;
+}
+.login-modal header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.login-modal header h2 {
+    font-weight: 300;
+    color: #8c97a1;
+    line-height: 30px;
+}
+.login-modal header p {
+    font-weight: 300;
+    line-height: 28px;
+    color: #aeb6bd;
+}
+.mg-modal-body .form-control {
+    height: 40px;
+    border-radius: 6px;
+    font-weight: 300;
+    font-style: italic;
+    color: #aeb6bd;
+}
+.forget-pass {
+    margin-top: 15px;
+    padding-top: 5px;
+    text-align: center;
+}

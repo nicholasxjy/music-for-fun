@@ -1,7 +1,11 @@
-var app = angular.module('mGeek.controllers', []);
+var app = angular.module('mGeek.controllers', ['ngDialog']);
 
-app.controller('MainCtrl', ['$scope', function($scope) {
-    $scope.msg = "Welcome to main page";
+app.controller('MainCtrl', ['$scope','ngDialog', function($scope, ngDialog) {
+    $scope.showLoginModal = function() {
+        ngDialog.open({
+            template: 'partials/login.html'
+        });
+    }
 }]);
 
 app.controller('LoginCtrl', ['$scope', function($scope){

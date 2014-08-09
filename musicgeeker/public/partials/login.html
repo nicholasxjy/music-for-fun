@@ -1,1 +1,27 @@
-<h1>{{msg}}</h1>
+<div class="ngdialog-message login-modal">
+    <div class="modal-inner">
+        <header>
+            <h2>Log In to MGeek</h2>
+            <p>Don't have an account? <a href="#">Sign Up Free!</a></p>
+        </header>
+        <div class="mg-modal-body">
+            <form action="">
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="pass" class="form-control" placeholder="Password">
+                </div>
+                <div class="alert alert-warning">
+                    There is no way to do it without your username and password!
+                </div>
+
+                <button type="submit" class="mg-btn mg-btn-block">Log In</button>
+
+                <div class="forget-pass">
+                    <a href="#" class="forget-pass-link">Forgot password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
