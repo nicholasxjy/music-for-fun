@@ -4,9 +4,15 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+var multer = require('multer');
+var config = require('./config');
+
+
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+
 
 var app = express();
 
@@ -19,11 +25,22 @@ app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+
+app.use(multer({dest: config.avatar_dir}));
+
 app.use(cookieParser());
+
+app.use(session({
+    secret: config.session_secret,
+    store: new MongoStore({
+        db: config.dbname
+    })
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
+//app.set('view cache', true);
+
+routes(app);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

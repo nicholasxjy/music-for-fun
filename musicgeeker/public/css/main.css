@@ -11,6 +11,17 @@ a {
     color: #00B7FF;
 }
 
+.form-tip {
+  font-size: 12px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 16px;
+  padding-left: 10px;
+  color: #aeb6bd;
+}
+
+
+
 /*** ngDialog css ***/
 
 @-webkit-keyframes ngdialog-flyin {

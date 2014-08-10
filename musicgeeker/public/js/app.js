@@ -1,4 +1,4 @@
-var app = angular.module('mGeek', ['ui.router', 'mGeek.controllers']);
+var app = angular.module('mGeek', ['ui.router', 'mGeek.controllers', 'mGeek.services']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
@@ -7,5 +7,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
         url: '/',
         templateUrl: 'partials/main.html',
         controller: 'MainCtrl'
+    })
+    .state('home', {
+        templateUrl: 'partials/home.html',
+        controller: 'HomeCtrl'
     });
 });

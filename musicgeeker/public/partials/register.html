@@ -1,0 +1,29 @@
+<div class="ngdialog-message login-modal">
+    <div class="modal-inner">
+        <header>
+            <h2>Sign Up to MGeek</h2>
+            <p>Already have an account, return to <a ng-click="showLoginModal()">Login!</a></p>
+        </header>
+        <div class="mg-modal-body">
+            <form name="registerForm" novalidate ng-submit="registerFormSubmit(user)">
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" placeholder="Username" ng-model="user.name" required ng-minlength="6" ng-maxlength="20" ng-pattern="/^[a-zA-Z0-9]+$/">
+                    <span class="form-tip">only letters and numbers between 6~20</span>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="Email" ng-model="user.email" required>
+                    <span class="form-tip">Your email address</span>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="pass" class="form-control" placeholder="Password" ng-model="user.pass" required ng-minlength="6" ng-maxlength="30">
+                    <span class="form-tip">Your password between 6~30</span>
+                </div>
+                <div class="alert {{hasError ? 'alert-warning' : 'alert-success'}}" ng-show="resultDone">
+                    {{register.msg}}
+                </div>
+
+                <button type="submit" class="mg-btn mg-btn-block" ng-disabled="registerForm.$invalid">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>
