@@ -1,4 +1,121 @@
-<h3>Welcome to this page, you have already login!</h3>
+<section class="home-section">
+    <div class="mg-overlay" ng-class="{active: userInfoState}" ng-click="userInfoState=false"></div>
+    <div class="right-side-bar" ng-class="{active: userInfoState}">
+        <div class="user-card">
+            <img src="images/downloads.jpg" alt="" class="img-responsive user-card-cover">
+            <a href="#" ng-click="showSettingModal()" class="setting-link"><i class="fa fa-gear"></i></a>
+            <div class="user-info-wrap">
+                <div class="user-avatar">
+                    <img src="{{data.user.avatar}}" alt="" class="img-responsive img-circle" width="60" height="60">
+                </div>
+                <div class="user-info-other">
+                    <h3>{{data.user.name}}</h3>
+                    <p>
+                        <span>男</span>
+                        <span>上海</span>
+                    </p>
+                </div>
+            </div>
+            <div class="user-profile">
+                <p>{{data.user.profile}}</p>
+            </div>
+            <ul class="list-wrap">
+                <li>
+                    <div class="user-info-list">
+                        <div class="list-icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <div class="list-item-content">
+                            <span>Followers</span><br>
+                            <b>123</b>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="user-info-list">
+                        <div class="list-icon">
+                            <i class="fa fa-headphones"></i>
+                        </div>
+                        <div class="list-item-content">
+                            <span>Level</span><br>
+                            <b>{{data.user.level}}</b>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="user-info-list">
+                        <div class="list-icon">
+                            <i class="fa fa-heart"></i>
+                        </div>
+                        <div class="list-item-content">
+                            <span>Scores</span><br>
+                            <b>{{data.user.score}}</b>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div class="hot-geekers">
+            <h3>Top MGeekers</h3>
+            <ul class="list-unstyled">
+                <li>
+                    <div class="top-list-item">
+                        <img src="images/avatar.png" alt="" class="img-responsive img-circle" width="50" height="50">
+                        <div class="top-users-info">
+                            <a href="#">Nicholas</a>
+                            <p><i class="fa fa-heart-o"></i>200</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="top-list-item">
+                        <img src="images/avatar.png" alt="" class="img-responsive img-circle" width="50" height="50">
+                        <div class="top-users-info">
+                            <a href="#">Nicholas</a>
+                            <p><i class="fa fa-heart-o"></i>200</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="top-list-item">
+                        <img src="images/avatar.png" alt="" class="img-responsive img-circle" width="50" height="50">
+                        <div class="top-users-info">
+                            <a href="#">Nicholas</a>
+                            <p><i class="fa fa-heart-o"></i>200</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="top-list-item">
+                        <img src="images/avatar.png" alt="" class="img-responsive img-circle" width="50" height="50">
+                        <div class="top-users-info">
+                            <a href="#">Nicholas</a>
+                            <p><i class="fa fa-heart-o"></i>200</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="top-list-item">
+                        <img src="images/avatar.png" alt="" class="img-responsive img-circle" width="50" height="50">
+                        <div class="top-users-info">
+                            <a href="#">Nicholas</a>
+                            <p><i class="fa fa-heart-o"></i>200</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-<h1>{{data.user.name}}</h1>
-<h1>{{data.user.createtime}}</h1>
+
+    <div class="shrinkwrap" ng-class="{shrunk: userInfoState}">
+        <div id="header" class="header">
+            <h1 class="logo"></h1>
+            <div class="right-sidebar-toggle" ng-click="$parent.userInfoState=true">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -10,5 +10,8 @@ mongoose.connect(config.dburl, function(err) {
 });
 
 require('./User');
-
+require('./Song');
+require('./SongtoUser');
 exports.User = mongoose.model('User');
+exports.Song = mongoose.model('Song');
+exports.SongtoUser = mongoose.model('SongtoUser');

@@ -23,7 +23,8 @@ var config = {
             user: 'lolme_club@126.com',
             pass: 'hilarious4862'
         }
-    }
+    },
+    song_default_intro: "该歌曲还没详细介绍"
 };
 
 module.exports = config;
