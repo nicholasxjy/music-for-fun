@@ -89,8 +89,27 @@ app.controller('SignupCtrl', ['$scope', 'ngDialog', 'Auth', function($scope, ngD
     }
 }]);
 
-app.controller('ForgotPassCtrl', ['$scope', 'ngDialog', function($scope, ngDialog){
-
+app.controller('ForgotPassCtrl', ['$scope', 'ngDialog', '$timeout', '$state', 'Auth', function($scope, ngDialog, $timeout, $state, Auth){
+    $scope.forgotPassFormSubmit = function(user) {
+        Auth.forgotPass(user)
+            .success(function(result) {
+                if (result.status === 'fail') {
+                    $scope.hasError = true;
+                    $scope.resultDone = true;
+                    $scope.msg = result.msg;
+                } else {
+                    $scope.hasError = false;
+                    $scope.resultDone = true;
+                    $scope.msg = result.msg;
+                    $timeout(function() {
+                        $state.reload();
+                    }, 2000);
+                }
+            })
+            .error(function() {
+                alert("Something goes wrong here, try again!");
+            })
+    }
 }]);
 
 

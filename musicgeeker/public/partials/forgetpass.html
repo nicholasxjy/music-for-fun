@@ -5,15 +5,16 @@
             <p>Input your email when you sign up used</p>
         </header>
         <div class="mg-modal-body">
-            <form action="">
+            <form name="forgotPassForm" novalidate ng-submit="forgotPassFormSubmit(user)">
                 <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="email">
+                    <input type="email" name="email" class="form-control" placeholder="email"
+                        ng-model="user.email" required>
                 </div>
-                <div class="alert alert-warning">
-                    There is no way to do it without your username and password!
+                <div class="alert {{hasError ? 'alert-warning':'alert-success'}}" ng-show="resultDone">
+                    {{msg}}
                 </div>
 
-                <button type="submit" class="mg-btn mg-btn-block">Submit</button>
+                <button type="submit" class="mg-btn mg-btn-block" ng-disabled="forgotPassForm.$invalid">Submit</button>
             </form>
         </div>
     </div>

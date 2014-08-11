@@ -60,4 +60,26 @@ exports.signin = function(req, res, next) {
         res.cookie(config.cookieName, cookieToken, {path: '/', maxAge: config.cookieAge});
         return res.json({status: 'success', activetip: activeTip});
     });
-}
+};
+
+exports.forgotPass = function(req, res, next) {
+    var info = req.body.data;
+    var email = info.email;
+    email = validator.trim(email);
+    if (!validator.isEmail(email)) {
+        return res.json({status: 'fail', msg: '邮箱地址不正确'});
+    }
+    userproxy.getUserByEmail(email, function(err, user) {
+        if (err) return next(err);
+        if (!user) {
+            return res.json({status: 'fail', msg: '不存在此邮箱用户'});
+        }
+        var forgetKey = util.randomString(15);
+        user.forgetkey = forgetKey;
+        user.save(function(err) {
+            if (err) return next(err);
+            util.sendResetPassMail(email, forgetKey, user.name);
+            return res.json({status: 'success', msg: '我们给你的邮箱发送一封重置密码的邮件，请点击里面的连接以重置密码。'});
+        });
+    });
+};
