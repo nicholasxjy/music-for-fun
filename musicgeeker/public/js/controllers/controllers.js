@@ -7,6 +7,13 @@ app.controller('MainCtrl', ['$scope','ngDialog', function($scope, ngDialog) {
             controller: 'LoginCtrl'
         });
     };
+
+    $scope.showWeChatModal = function() {
+        ngDialog.open({
+            template: 'partials/wechat.html'
+        });
+    };
+
 }]);
 
 app.controller('LoginCtrl', ['$scope', 'ngDialog', 'Auth', '$timeout', '$state', function($scope, ngDialog, Auth, $timeout, $state){
@@ -113,6 +120,12 @@ app.controller('ForgotPassCtrl', ['$scope', 'ngDialog', '$timeout', '$state', 'A
 }]);
 
 
-app.controller('HomeCtrl', ['$scope', function($scope){
-
+app.controller('HomeCtrl', ['$scope', 'API', function($scope, API){
+    API.getHome()
+        .success(function(data) {
+            $scope.data = data.data;
+        })
+        .error(function() {
+            alert("Something goes wrong here!");
+        })
 }]);

@@ -8,7 +8,7 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var multer = require('multer');
 var config = require('./config');
-
+var middleware = require('./server/middleware');
 
 
 var routes = require('./routes/index');
@@ -39,7 +39,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 //app.set('view cache', true);
-
+app.use(middleware.authUser);
 routes(app);
 
 /// catch 404 and forward to error handler

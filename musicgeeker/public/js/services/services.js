@@ -16,3 +16,11 @@ app.factory('Auth', ['$http', function($http){
         }
     }
 }]);
+
+app.factory('API', ['$http', function($http){
+    return {
+        getHome: function() {
+            return $http.get('/api/home');
+        }
+    }
+}]);
