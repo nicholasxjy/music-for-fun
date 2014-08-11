@@ -1,4 +1,4 @@
-var app = angular.module('mGeek.controllers', ['ngDialog', 'mGeek.services', 'ui.router']);
+var app = angular.module('mGeek.controllers', ['ngDialog', 'mGeek.services', 'ui.router', 'mediaPlayer']);
 
 app.controller('MainCtrl', ['$scope','ngDialog', function($scope, ngDialog) {
     $scope.showLoginModal = function() {
@@ -128,4 +128,30 @@ app.controller('HomeCtrl', ['$scope', 'API', function($scope, API){
         .error(function() {
             alert("Something goes wrong here!");
         })
+}]);
+
+
+app.controller('AudioCtrl', ['$scope', function($scope){
+    $scope.playing = true;
+    $scope.audioPlay = function() {
+        $scope.audio1.playPause();
+        if ($scope.playing) {
+           $scope.playing = false;
+           $scope.pause = true;
+        } else {
+            $scope.playing = true;
+            $scope.pause = false;
+        }
+
+    };
+    $scope.audioPrev = function() {
+        $scope.audio1.prev(true);
+    };
+    $scope.audioNext = function() {
+
+        $scope.audio1.next(true);
+    };
+    $scope.audioToggleMute = function() {
+        $scope.audio1.toggleMute();
+    }
 }]);

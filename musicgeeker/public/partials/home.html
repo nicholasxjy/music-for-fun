@@ -116,6 +116,44 @@
                 <i class="fa fa-bars"></i>
             </div>
         </div>
+        <div class="content-wrap">
+            <div class="toptip-box">
+                <h4>Music Geek - Tips</h4>
+                <p>An impressive assortment of dark styled UI elements created to make your design process easier. Even bigger and more refined than our regular UI Kit, the great out of the box options within will allow your work to shine in no time! Delivered as a well-organized PSD. 50% off the full price of $54 for a limited time!</p>
+            </div>
+            <div class="music-play-box" ng-controller="AudioCtrl">
+                <img src="images/img-123.jpg" alt="" class="img-responsive album-cover">
 
+
+                <div class="audio-controls">
+                    <ul class="list-inline">
+                        <li>
+                            <div class="control-wrap" ng-click="audioPrev()">
+                                <span class="fa fa-backward"></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="control-wrap control-play" ng-click="audioPlay()">
+                                <span class="fa {{playing ? 'fa-play' : 'fa-pause'}}"></span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="control-wrap" ng-click="audioNext()">
+                                <span class="fa fa-forward"></span>
+                            </div>
+                        </li>
+                        <li class="pull-right" ng-click="audioToggleMute()">
+                            <div class="control-wrap">
+                                <span class="fa fa-volume-up"></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <audio media-player="audio1" data-playlist="playlist1">
+                    <source src="audios/demo.mp3" type="audio/mpeg" />
+                    Your browser sucks, i suggest you change it imediately sencerely!
+                </audio>
+            </div>
+        </div>
     </div>
 </section>
