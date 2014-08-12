@@ -13,7 +13,7 @@ exports.getUserByEmail = function(email, callback) {
 }
 
 exports.getUserById = function(id, callback) {
-    User.findOne({_id: id}, callback);
+    User.findById(id, callback);
 }
 
 exports.createNewUser = function(name, email, pass, callback) {

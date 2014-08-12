@@ -19,7 +19,56 @@ a {
   padding-left: 10px;
   color: #aeb6bd;
 }
+section {
+  overflow-x: hidden;
+}
 
+.mg-notification {
+  height: 68px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 4;
+  transform: translate3d(0, -68px, 0);
+  -webkit-transform: translate3d(0, -68px, 0);
+  transition: transform 0.4s;
+  -wbkit-transition: -webkit-transform 0.4s;
+  -moz-transition: -moz-transform 0.4s;
+  -ms-transition: -ms-transform 0.4s;
+  -o-transition: -o-transform 0.4s;
+}
+
+.mg-notification-inner {
+  height: 100%;
+  width: 100%;
+  background-color: #393f4f;
+  color: #fff;
+}
+.mg-notification-icon {
+  width: 68px;
+  height: 100%;
+  float: left;
+  font-size: 30px;
+  line-height: 34px;
+  text-align: center;
+  padding-top: 17px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, .6);
+}
+.mg-notification-content {
+  height: 100%;
+  float: left;
+  font-size: 16px;
+  line-height: 30px;
+  padding-top: 15px;
+  padding-left: 20px;
+}
+.mg-notification.active {
+  transform: translate3d(0, 0, 50px);
+  -webkit-transform: translate3d(0, 0, 50px);
+}
 /****  loading bar ****/
 
 /* Make clicks pass-through */

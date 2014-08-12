@@ -1,7 +1,7 @@
-<section class="home-section">
+<section class="home-section" ng-controller="AudioCtrl">
     <div class="mg-overlay" ng-class="{active: userInfoState}" ng-click="userInfoState=false"></div>
     <div class="right-side-bar" ng-class="{active: userInfoState}">
-        <div class="user-card" ng-controller="UserCtrl">
+        <div class="user-card">
             <img src="images/downloads.jpg" alt="" class="img-responsive user-card-cover">
             <a href="#" ng-click="showSettingModal()" class="setting-link"><i class="fa fa-gear"></i></a>
             <div class="user-info-wrap">
@@ -107,12 +107,10 @@
             </ul>
         </div>
     </div>
-
-
     <div class="shrinkwrap" ng-class="{shrunk: userInfoState}">
         <div id="header" class="header">
             <h1 class="logo"></h1>
-            <div class="right-sidebar-toggle" ng-click="$parent.userInfoState=true">
+            <div class="right-sidebar-toggle" ng-click="userInfoState=true">
                 <i class="fa fa-bars"></i>
             </div>
         </div>
@@ -121,9 +119,16 @@
                 <h4>Music Geek - Tips</h4>
                 <p>An impressive assortment of dark styled UI elements created to make your design process easier. Even bigger and more refined than our regular UI Kit, the great out of the box options within will allow your work to shine in no time! Delivered as a well-organized PSD. 50% off the full price of $54 for a limited time!</p>
             </div>
-            <div class="music-play-box" ng-controller="AudioCtrl">
+            <div class="music-play-box">
                 <img src="images/img-123.jpg" alt="" class="img-responsive album-cover">
 
+                <form name="answerForm" novalidate ng-submit="answerFormSubmit(audio)">
+                    <label for="answer" class="answer-label">
+                        What's this song?
+                    </label>
+                    <input type="text" ng-model="audio.name" class="answer-input" required>
+                    <button type="submit" class="btn btn-info" ng-disabled="answerForm.$invalid">Submit</button>
+                </form>
 
                 <div class="audio-controls">
                     <ul class="list-inline">
@@ -142,9 +147,19 @@
                                 <span class="fa fa-forward"></span>
                             </div>
                         </li>
+                        <li class="volume-list-item pull-right">
+                            <div class="control-wrap volume-control" ng-click="audioVolumeUp()">
+                                <span class="fa fa-plus"></span>
+                            </div>
+                        </li>
+                        <li class="volume-list-item pull-right">
+                            <div class="control-wrap volume-control" ng-click="audioVolumeDown()">
+                                <span class="fa fa-minus"></span>
+                            </div>
+                        </li>
                         <li class="pull-right" ng-click="audioToggleMute()">
                             <div class="control-wrap">
-                                <span class="fa fa-volume-up"></span>
+                                <span class="fa {{mute ? 'fa-volume-off' : 'fa-volume-up'}}"></span>
                             </div>
                         </li>
                     </ul>
@@ -153,6 +168,7 @@
                     <source src="audios/demo.mp3" type="audio/mpeg" />
                     Your browser sucks, i suggest you change it imediately sencerely!
                 </audio>
+                <div ng-include="'partials/notification.html'"></div>
             </div>
         </div>
     </div>

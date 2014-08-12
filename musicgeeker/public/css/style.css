@@ -286,7 +286,7 @@
 .header .right-sidebar-toggle {
     height: 44px;
     width: 44px;
-    border: 1px solid #ccc;
+    border: 1px solid #e23861;
     border-radius: 22px;
     position: absolute;
     top: 30px;
@@ -294,6 +294,7 @@
     right: 30px;
     z-index: 1;
     cursor: pointer;
+    color: #e23861;
 }
 .header .right-sidebar-toggle i {
     font-size: 24px;
@@ -319,7 +320,35 @@
     height: 500px;
     background-color: #fff;
     border-radius: 4px;
+    position: relative;
 }
+
+/*************/
+.music-play-box form {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+}
+.answer-label {
+    display: inline-block;
+    font-size: 2.5em;
+    color: #21242e;
+    font-weight: 700;
+}
+.answer-input {
+    display: block;
+    border: none;
+    border-bottom: 2px solid rgba(0, 0, 0, .6);
+    background-color: transparent;
+    outline: none;
+    font-size: 2.5em;
+    padding: 10px 15px 10px 15px;
+    color: #21242e;
+    font-weight: 700;
+}
+/*************/
+
+
 .music-play-box .album-cover {
     height: 350px;
     width: 100%;
@@ -341,20 +370,6 @@
     padding: 0;
     margin: 0;
 }
-/*
-.control-wrap {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #fff;
-    text-align: center;
-    font-size: 30px;
-    line-height: 36px;
-    padding-top: 5px;
-    padding-left: 3px;
-    cursor: pointer;
-}
-*/
 
 .control-wrap {
     background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
@@ -377,6 +392,15 @@
     height: 70px;
     width: 70px;
 }
+.control-wrap.volume-control {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    line-height: 30px;
+}
+.volume-list-item {
+    padding-top: 20px;
+}
 .fa-backward {
     margin-top: 16px;
     margin-left: 13px;
@@ -396,6 +420,13 @@
 .fa-volume-up {
     margin-left: 15px;
     margin-top: 16px;
+}
+.fa-volume-off {
+    margin-left: 20px;
+    margin-top: 16px;
+}
+.fa-plus, .fa-minus {
+    margin-left: 7px;
 }
 .control-wrap:after{
     color:#e9e6e4;

@@ -58,6 +58,8 @@ exports.signin = function(req, res, next) {
         var cookieToken = util.encryt(user._id + '||' + user.name + '||'
             + user.email + '||' + user.password, config.session_secret);
         res.cookie(config.cookieName, cookieToken, {path: '/', maxAge: config.cookieAge});
+        var sess = req.session;
+        sess.user = user;
         return res.json({status: 'success', activetip: activeTip});
     });
 };

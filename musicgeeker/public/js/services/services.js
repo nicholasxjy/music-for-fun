@@ -24,6 +24,9 @@ app.factory('API', ['$http', function($http){
         },
         getSongs: function() {
             return $http.get('/api/getsongs/');
+        },
+        checkSong: function(audio) {
+            return $http.post('/api/checksong', {data: audio});
         }
     }
 }]);

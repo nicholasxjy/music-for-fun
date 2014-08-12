@@ -5,5 +5,5 @@ exports.getSongsByQuery = function(query, options, callback) {
 };
 
 exports.getSongById = function(id, callback) {
-    Song.findOne({_id: id}, callback);
+    Song.findById(id, callback);
 }

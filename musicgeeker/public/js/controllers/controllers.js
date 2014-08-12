@@ -44,7 +44,7 @@ app.controller('LoginCtrl', ['$scope', 'ngDialog', 'Auth', '$timeout', '$state',
                         $scope.hasError = true;
                         $scope.login.msg = result.activetip;
                         $timeout(function() {
-                             $state.go('home');
+                            $state.go('home');
                         }, 2000);
                     } else {
                         $state.go('home');
@@ -120,7 +120,12 @@ app.controller('ForgotPassCtrl', ['$scope', 'ngDialog', '$timeout', '$state', 'A
 }]);
 
 
-app.controller('UserCtrl', ['$scope', 'API', function($scope, API){
+// app.controller('UserCtrl', ['$scope', 'API', function($scope, API){
+
+// }]);
+
+
+app.controller('AudioCtrl', ['$scope', 'API', '$timeout', function($scope, API, $timeout){
     API.getUser()
         .success(function(data) {
             $scope.data = data.data;
@@ -129,18 +134,17 @@ app.controller('UserCtrl', ['$scope', 'API', function($scope, API){
             console.log(err);
             alert("Something goes wrong here!");
         })
-}]);
-
-
-app.controller('AudioCtrl', ['$scope', 'API', function($scope, API){
     API.getSongs()
         .success(function(data) {
             $scope.playlist = data.data.songs;
+            console.log($scope.playlist);
         })
         .error(function() {
             alert("Something goes wrong here!");
         });
     $scope.playing = true;
+    $scope.mute = false;
+    $scope.hasNotification = false;
     $scope.audioPlay = function() {
         $scope.audio1.playPause();
         if ($scope.playing) {
@@ -160,6 +164,32 @@ app.controller('AudioCtrl', ['$scope', 'API', function($scope, API){
         $scope.audio1.next(true);
     };
     $scope.audioToggleMute = function() {
+        $scope.mute = !$scope.mute;
         $scope.audio1.toggleMute();
+    };
+    $scope.audioVolumeUp = function() {
+        var value = ($scope.audio1.volume + 0.1) > 1 ? 1 : ($scope.audio1.volume + 0.1);
+        $scope.audio1.setVolume(value);
+    };
+    $scope.audioVolumeDown = function() {
+        var value = ($scope.audio1.volume - 0.1) < 0 ? 0 : ($scope.audio1.volume - 0.1);
+        $scope.audio1.setVolume(value);
+    };
+    $scope.answerFormSubmit = function(audio) {
+        var currenttrack = $scope.audio1.currentTrack;
+        var index = (currenttrack - 1) < 0 ? 0 : (currenttrack - 1);
+        audio.id = $scope.playlist[index].id;
+        API.checkSong(audio)
+            .success(function(data) {
+                $scope.data.user.score = data.score;
+                $scope.notification = data.msg;
+                $scope.hasNotification = true;
+                $timeout(function() {
+                    $scope.hasNotification = false;
+                }, 2000);
+            })
+            .error(function() {
+                alert("Something goes wrong here!");
+            })
     }
 }]);
