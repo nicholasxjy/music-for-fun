@@ -19,8 +19,11 @@ app.factory('Auth', ['$http', function($http){
 
 app.factory('API', ['$http', function($http){
     return {
-        getHome: function() {
-            return $http.get('/api/home');
+        getUser: function() {
+            return $http.get('/api/getuser');
+        },
+        getSongs: function() {
+            return $http.get('/api/getsongs/');
         }
     }
 }]);

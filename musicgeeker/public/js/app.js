@@ -1,6 +1,7 @@
 var app = angular.module('mGeek', ['ui.router', 'angular-loading-bar', 'ngAnimate', 'mGeek.controllers', 'mGeek.services']);
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+    //$locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('main', {
@@ -11,6 +12,5 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('home', {
         url: '/home',
         templateUrl: 'partials/home.html',
-        controller: 'HomeCtrl'
     });
 });

@@ -120,18 +120,26 @@ app.controller('ForgotPassCtrl', ['$scope', 'ngDialog', '$timeout', '$state', 'A
 }]);
 
 
-app.controller('HomeCtrl', ['$scope', 'API', function($scope, API){
-    API.getHome()
+app.controller('UserCtrl', ['$scope', 'API', function($scope, API){
+    API.getUser()
         .success(function(data) {
             $scope.data = data.data;
         })
-        .error(function() {
+        .error(function(err) {
+            console.log(err);
             alert("Something goes wrong here!");
         })
 }]);
 
 
-app.controller('AudioCtrl', ['$scope', function($scope){
+app.controller('AudioCtrl', ['$scope', 'API', function($scope, API){
+    API.getSongs()
+        .success(function(data) {
+            $scope.playlist = data.data.songs;
+        })
+        .error(function() {
+            alert("Something goes wrong here!");
+        });
     $scope.playing = true;
     $scope.audioPlay = function() {
         $scope.audio1.playPause();

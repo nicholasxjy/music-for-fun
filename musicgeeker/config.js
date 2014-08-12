@@ -8,7 +8,7 @@ var config = {
     vesion: pkg.version,
 
     dbname: 'musicgeeker',
-    dburl: 'mongodb://127.0.0.1/mgeek',
+    dburl: 'mongodb://127.0.0.1/musicgeeker',
     session_secret: 'mgeek',
     cookie_secret: 'mgeek',
     cookieName: 'mgeek',
@@ -24,7 +24,10 @@ var config = {
             pass: 'hilarious4862'
         }
     },
-    song_default_intro: "该歌曲还没详细介绍"
+    song_default_intro: "该歌曲还没详细介绍",
+
+    songs_perpage: 10,
+    songs_limit: 10
 };
 
 module.exports = config;

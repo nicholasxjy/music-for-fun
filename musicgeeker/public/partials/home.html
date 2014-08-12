@@ -1,12 +1,12 @@
 <section class="home-section">
     <div class="mg-overlay" ng-class="{active: userInfoState}" ng-click="userInfoState=false"></div>
     <div class="right-side-bar" ng-class="{active: userInfoState}">
-        <div class="user-card">
+        <div class="user-card" ng-controller="UserCtrl">
             <img src="images/downloads.jpg" alt="" class="img-responsive user-card-cover">
             <a href="#" ng-click="showSettingModal()" class="setting-link"><i class="fa fa-gear"></i></a>
             <div class="user-info-wrap">
                 <div class="user-avatar">
-                    <img src="{{data.user.avatar}}" alt="" class="img-responsive img-circle" width="60" height="60">
+                    <img ng-src="{{data.user.avatar}}" alt="" class="img-responsive img-circle" width="60" height="60">
                 </div>
                 <div class="user-info-other">
                     <h3>{{data.user.name}}</h3>
@@ -149,7 +149,7 @@
                         </li>
                     </ul>
                 </div>
-                <audio media-player="audio1" data-playlist="playlist1">
+                <audio media-player="audio1" data-playlist="playlist">
                     <source src="audios/demo.mp3" type="audio/mpeg" />
                     Your browser sucks, i suggest you change it imediately sencerely!
                 </audio>

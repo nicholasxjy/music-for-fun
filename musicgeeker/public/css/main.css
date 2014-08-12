@@ -495,7 +495,7 @@ body.ngdialog-open .ngdialog-overlay {
 .mg-section {
     min-height: 1200px;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
     background: #fff no-repeat 0 0;
     color: #fff;
 }

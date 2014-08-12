@@ -10,7 +10,7 @@ exports.authUser = function(req, res, next) {
             if (user) {
                 user.format_create_time = util.formatDate(user.createtime, true);
                 sess.user = user;
-                res.locals.c_user = user;
+                //res.locals.c_user = user;
                 return next();
             } else {
                 return next();
@@ -28,7 +28,7 @@ exports.authUser = function(req, res, next) {
             if (user) {
                 user.format_create_time = util.formatDate(user.createtime, true);
                 sess.user = user;
-                res.locals.c_user = user;
+                //res.locals.c_user = user;
                 return next();
             } else {
                 return next();
