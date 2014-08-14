@@ -24,6 +24,7 @@ section {
 }
 
 .mg-notification {
+  opacity: 0;
   height: 68px;
   width: 100%;
   position: fixed;
@@ -66,6 +67,7 @@ section {
   padding-left: 20px;
 }
 .mg-notification.active {
+  opacity: 1;
   transform: translate3d(0, 0, 50px);
   -webkit-transform: translate3d(0, 0, 50px);
 }

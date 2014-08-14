@@ -44,6 +44,7 @@ app.controller('LoginCtrl', ['$scope', 'ngDialog', 'Auth', '$timeout', '$state',
                         $scope.hasError = true;
                         $scope.login.msg = result.activetip;
                         $timeout(function() {
+                            ngDialog.close('ngdialog1');
                             $state.go('home');
                         }, 2000);
                     } else {
