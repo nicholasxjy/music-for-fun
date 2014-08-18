@@ -85,3 +85,9 @@ exports.forgotPass = function(req, res, next) {
         });
     });
 };
+
+exports.logout = function(req, res, next) {
+    req.session.destroy();
+    res.clearCookie(config.cookieName, {path: '/'});
+    return res.json({status: 'success'});
+}

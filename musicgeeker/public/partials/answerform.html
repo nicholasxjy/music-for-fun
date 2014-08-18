@@ -1,0 +1,13 @@
+<div class="ngdialog-message login-modal">
+    <div class="modal-inner">
+        <div class="mg-modal-body">
+            <form name="answerForm" novalidate ng-submit="answerFormSubmit(audio)">
+                <label for="answer" class="answer-label">
+                    What's this song?
+                </label>
+                <input type="text" ng-model="audio.name" class="answer-input" required>
+                <button type="submit" class="btn btn-info pull-right" ng-disabled="answerForm.$invalid">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

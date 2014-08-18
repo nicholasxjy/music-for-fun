@@ -21,7 +21,12 @@ exports.getUser = function(req, res, next) {
         };
         return res.json({data: data});
     } else {
-        data.user = {};
+        data.user = {
+            name: "someone",
+            avatar: config.default_avatar_url,
+            level: "none",
+            score: "none"
+        };
         console.log(data);
         return res.json({data: data});
     }

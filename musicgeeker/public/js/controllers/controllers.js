@@ -126,19 +126,17 @@ app.controller('ForgotPassCtrl', ['$scope', 'ngDialog', '$timeout', '$state', 'A
 // }]);
 
 
-app.controller('AudioCtrl', ['$scope', 'API', '$timeout', function($scope, API, $timeout){
+app.controller('AudioCtrl', ['$scope', 'API', '$timeout', 'ngDialog', '$state', 'Auth', function($scope, API, $timeout, ngDialog, $state, Auth){
     API.getUser()
         .success(function(data) {
             $scope.data = data.data;
         })
         .error(function(err) {
-            console.log(err);
             alert("Something goes wrong here!");
         })
     API.getSongs()
         .success(function(data) {
             $scope.playlist = data.data.songs;
-            console.log($scope.playlist);
         })
         .error(function() {
             alert("Something goes wrong here!");
@@ -176,7 +174,20 @@ app.controller('AudioCtrl', ['$scope', 'API', '$timeout', function($scope, API, 
         var value = ($scope.audio1.volume - 0.1) < 0 ? 0 : ($scope.audio1.volume - 0.1);
         $scope.audio1.setVolume(value);
     };
+
+    $scope.showAnswerFormModal = function() {
+        //stop the current audio
+        $scope.audio1.pause();
+        $scope.mute = true;
+        ngDialog.open({
+            template: 'partials/answerform.html',
+            scope: $scope,
+            contoller: 'AudioCtrl'
+        });
+    }
+
     $scope.answerFormSubmit = function(audio) {
+        ngDialog.close('ngdialog1');
         var currenttrack = $scope.audio1.currentTrack;
         var index = (currenttrack - 1) < 0 ? 0 : (currenttrack - 1);
         audio.id = $scope.playlist[index].id;
@@ -187,7 +198,17 @@ app.controller('AudioCtrl', ['$scope', 'API', '$timeout', function($scope, API, 
                 $scope.hasNotification = true;
                 $timeout(function() {
                     $scope.hasNotification = false;
-                }, 2000);
+                }, 1200);
+            })
+            .error(function() {
+                alert("Something goes wrong here!");
+            })
+    }
+
+    $scope.signOut = function() {
+        Auth.logout()
+            .success(function() {
+                $state.go('main');
             })
             .error(function() {
                 alert("Something goes wrong here!");

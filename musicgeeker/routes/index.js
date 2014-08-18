@@ -11,4 +11,5 @@ module.exports = function(app) {
     app.post('/api/user/signup', auth.signup);
     app.post('/api/user/signin', auth.signin);
     app.post('/api/user/forgotpass', auth.forgotPass);
+    app.get('/api/user/logout', auth.logout);
 }
