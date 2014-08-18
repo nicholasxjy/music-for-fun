@@ -19,5 +19,9 @@
     "connect-mongo": "~0.4.1",
     "validator": "~3.17.0",
     "nodemailer": "~1.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-coffee": "^2.1.1"
   }
 }
