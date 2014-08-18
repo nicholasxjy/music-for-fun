@@ -14,7 +14,7 @@ var config = {
     cookieName: 'mgeek',
     cookieAge: 1000*60*60*24*30,
     avatar_dir: path.join(__dirname, 'public', 'avatars'),
-    default_avatar_url: '/images/avatar.png',
+    default_avatar_url: '/avatars/default.png',
     none_profile: '你还没有向大家介绍你自己呢！',
     mail_config: {
         host: 'smtp.126.com',

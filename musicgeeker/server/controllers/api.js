@@ -22,10 +22,10 @@ exports.getUser = function(req, res, next) {
         return res.json({data: data});
     } else {
         data.user = {
-            name: "someone",
+            name: "你还没有登录",
             avatar: config.default_avatar_url,
-            level: "none",
-            score: "none"
+            level: "",
+            score: ""
         };
         console.log(data);
         return res.json({data: data});

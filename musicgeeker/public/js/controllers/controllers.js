@@ -46,7 +46,7 @@ app.controller('LoginCtrl', ['$scope', 'ngDialog', 'Auth', '$timeout', '$state',
                         $timeout(function() {
                             ngDialog.close('ngdialog1');
                             $state.go('home');
-                        }, 2000);
+                        }, 1500);
                     } else {
                         $state.go('home');
                     }
@@ -198,7 +198,7 @@ app.controller('AudioCtrl', ['$scope', 'API', '$timeout', 'ngDialog', '$state', 
                 $scope.hasNotification = true;
                 $timeout(function() {
                     $scope.hasNotification = false;
-                }, 1200);
+                }, 2000);
             })
             .error(function() {
                 alert("Something goes wrong here!");

@@ -4,4 +4,6 @@ public/images
 public/audios
 public/bower_components
 .idea
-data-test.js
+data-insert.js
+mgdata.js
+public/avatars
