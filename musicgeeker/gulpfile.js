@@ -9,7 +9,9 @@ var imagemin = require('gulp-imagemin');
 var paths = {
 	scripts: ['./public/js/*', './public/js/**/*'],
 	css: ['./public/css/main.css', './public/css/style.css'],
-	images: ['./public/avatars/*', './public/img/*']
+	avatars: './public/avatars/*',
+	pageimgs: './public/images/*',
+	audioimgs: './public/images/audio/*'
 };
 
 // concat min css task
@@ -32,9 +34,16 @@ gulp.task('minjs', function() {
 //compress imagemin
 
 gulp.task('minimage', function() {
-	gulp.src(paths.images)
+	gulp.src(paths.avatars)
 		.pipe(imagemin())
 		.pipe(gulp.dest('./public/dist/img/avatars'))
+
+	gulp.src(paths.pageimgs)
+		.pipe(imagemin())
+		.pipe(gulp.dest('./public/dist/img/'))
+	gulp.src(paths.audioimgs)
+		.pipe(imagemin())
+		.pipe(gulp.dest('./public/dist/img/audio'))
 });
 
 gulp.task('watch', function() {

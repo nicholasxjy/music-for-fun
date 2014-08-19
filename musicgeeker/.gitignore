@@ -3,6 +3,7 @@ node_modules
 public/images
 public/audios
 public/bower_components
+public/dist
 .idea
 data-insert.js
 mgdata.js

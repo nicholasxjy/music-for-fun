@@ -64,6 +64,31 @@ exports.signin = function(req, res, next) {
     });
 };
 
+exports.activeAccount = function(req, res, next) {
+    var token = req.query.key;
+    var name = req.query.name;
+    if (token === '' || name==='') {
+        return res.render('notify', {status: 'fail', msg: '信息错误'});
+    }
+    userproxy.getUserByName(name, function(err, user) {
+        if (err) return next(err);
+        if (!user) {
+            return res.render('notify', {status: 'fail', msg: '信息有误'});
+        }
+        if (user.active) {
+            return res.render('notify', {status: 'fail', msg: '此帐号已经被激活'});
+        }
+        var activeKey = util.md5Crypto(user.email, config.session_secret);
+        if (token === activeKey) {
+            user.active = true;
+            user.save(function(err) {
+                if (err) return next(err);
+                return res.render('notify', {status: 'success', msg: '激活成功，返回登录'});
+            });
+        }
+    });
+};
+
 exports.forgotPass = function(req, res, next) {
     var info = req.body.data;
     var email = info.email;
@@ -90,4 +115,4 @@ exports.logout = function(req, res, next) {
     req.session.destroy();
     res.clearCookie(config.cookieName, {path: '/'});
     return res.json({status: 'success'});
-}
+};

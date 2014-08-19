@@ -8,6 +8,9 @@ app.factory('Auth', ['$http', function($http){
         signin: function(info) {
             return $http.post('/api/user/signin', {data: info});
         },
+        activeAccount: function() {
+            return $http.get('/api/user/active');
+        },
         forgotPass: function(info) {
             return $http.post('/api/user/forgotpass', {data: info});
         },

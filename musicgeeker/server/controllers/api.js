@@ -27,7 +27,6 @@ exports.getUser = function(req, res, next) {
             level: "",
             score: ""
         };
-        console.log(data);
         return res.json({data: data});
     }
 }
@@ -50,7 +49,6 @@ exports.getSongs = function(req, res, next) {
                 allsongs.push(song);
             }
             data.songs = allsongs;
-            console.log(data);
             return res.json({data: data});
         });
     } else {
