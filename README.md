@@ -6,8 +6,8 @@ A music game just for fun
 
 ### snapshot
 
-![Home](musicgeeker/public/images/snapshot/home.png)
+![Home](musicgeeker/public/snapshot/home.png)
 
 
 
-![Mian](musicgeeker/public/images/snapshot/main.png)
+![Mian](musicgeeker/public/snapshot/main.png)
